@@ -4,9 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SHWH Group Booking</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;800&display=swap" rel="stylesheet" />
+
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Poppins', sans-serif;
       margin: 0;
       padding: 0;
       height: 100vh;
@@ -14,67 +18,68 @@
       background-size: cover;
       background-position: center;
       display: flex;
-      justify-content: center;
+      flex-direction: column;
       align-items: center;
+      justify-content: center;
       text-align: center;
+      position: relative;
     }
 
     .greeting {
       position: absolute;
       top: 20px;
       width: 100%;
-      font-size: 48px;
-      font-weight: bold;
-      color: #ff4081;
+      font-size: 42px;
+      font-weight: 800;
       background: linear-gradient(45deg, #ff4081, #ff80ab);
       -webkit-background-clip: text;
       background-clip: text;
-      text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.5), 0 0 25px rgba(255, 64, 129, 0.8);
+      color: transparent;
+      text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
+      letter-spacing: 2px;
+      animation: fadeInDown 2s ease-out;
       z-index: 10;
-      font-family: 'Arial', sans-serif;
-      padding: 10px 0;
-    }
-
-    .subtext {
-      position: absolute;
-      top: 90px;
-      width: 100%;
-      font-size: 20px;
-      color: #fff;
-      text-shadow: 1px 1px 3px #000;
     }
 
     .container {
-      background-color: rgba(255, 255, 255, 0.85);
-      padding: 20px;
-      border-radius: 10px;
-      width: 80%;
+      background-color: rgba(255, 255, 255, 0.9);
+      padding: 30px;
+      border-radius: 12px;
+      width: 90%;
       max-width: 500px;
-      text-align: center;
-      z-index: 1;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+      z-index: 2;
     }
 
     h2 {
       color: #333;
+      margin-bottom: 15px;
     }
 
     input[type="text"] {
-      padding: 10px;
+      padding: 12px;
       font-size: 16px;
       width: 80%;
-      margin: 10px 0;
-      border-radius: 5px;
+      border-radius: 6px;
       border: 1px solid #ccc;
+      margin-bottom: 16px;
+      outline: none;
+      transition: border-color 0.3s ease;
+    }
+
+    input[type="text"]:focus {
+      border-color: #ff4081;
     }
 
     button {
-      padding: 10px 20px;
+      padding: 10px 24px;
       font-size: 16px;
       background-color: #ff4081;
       color: white;
       border: none;
-      border-radius: 5px;
+      border-radius: 6px;
       cursor: pointer;
+      transition: background-color 0.3s ease;
     }
 
     button:hover {
@@ -83,26 +88,73 @@
 
     #errorMsg {
       color: red;
-      margin-top: 10px;
+      margin-top: 12px;
+      font-weight: bold;
+      min-height: 20px;
+    }
+
+    .footer {
+      margin-top: 40px;
+      font-size: 28px;
+      font-weight: 800;
+      background: linear-gradient(90deg, #00c6ff, #0072ff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
+      animation: glow 3s ease-in-out infinite alternate;
+      letter-spacing: 3px;
+    }
+
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes glow {
+      from {
+        text-shadow: 0 0 5px #00c6ff, 0 0 10px #0072ff;
+      }
+      to {
+        text-shadow: 0 0 20px #00c6ff, 0 0 30px #0072ff;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .greeting {
+        font-size: 30px;
+      }
+
+      .footer {
+        font-size: 20px;
+      }
     }
   </style>
 </head>
 <body>
 
-  <!-- Hindi Greeting Text -->
+  <!-- Greeting -->
   <div class="greeting">
     स्नेह प्रयास परिवार आपका हार्दिक स्वागत करता है 🙏🙏🙏
   </div>
-  <div class="subtext">
-    For South Howrah Yatris
-  </div>
 
+  <!-- Form Container -->
   <div class="container">
     <h2>Enter Booking ID to Access the Form</h2>
     <input type="text" id="bookingId" placeholder="Enter Booking ID (e.g., shwh01)">
+    <br />
     <button onclick="checkBookingId()">Submit</button>
     <p id="errorMsg"></p>
   </div>
+
+  <!-- Footer -->
+  <div class="footer">South Howrah Group</div>
 
   <script>
     const validBookingIds = [];
