@@ -4,10 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Booking Access</title>
-
-  <!-- Google Fonts for religious/classy feel -->
   <link href="https://fonts.googleapis.com/css2?family=Baloo+2&family=Roboto&display=swap" rel="stylesheet" />
-
   <style>
     body {
       margin: 0;
@@ -30,7 +27,7 @@
       position: absolute;
       top: 20px;
       width: 100%;
-      font-size: 38px;
+      font-size: 76px;
       font-weight: 600;
       color: #ad1457;
       text-shadow: 0 0 2px rgba(0,0,0,0.1);
@@ -38,30 +35,11 @@
       letter-spacing: 0.08em;
       user-select: none;
       padding: 10px 0;
-      z-index: 3;
-    }
-
-    /* Container for local image between header and greeting */
-    .header-bg-container {
-      position: absolute;
-      top: 80px; /* below header */
-      left: 50%;
-      transform: translateX(-50%);
-      width: 200px;  /* adjust size as needed */
-      height: 120px; /* adjust size as needed */
-      z-index: 2;
-      pointer-events: none; /* so clicks pass through */
-    }
-
-    .header-bg-container img {
-      max-width: 100%;
-      max-height: 100%;
-      object-fit: contain;
     }
 
     .greeting {
       position: absolute;
-      top: 210px; /* moved down to accommodate image */
+      top: 170px;
       width: 100%;
       font-size: 42px;
       font-weight: 700;
@@ -72,12 +50,6 @@
       user-select: none;
       padding: 10px 0;
       letter-spacing: 0.05em;
-      z-index: 3;
-    }
-
-    .greeting br {
-      display: block;
-      margin-bottom: 10px;
     }
 
     .container {
@@ -152,33 +124,61 @@
       box-shadow: 0 4px 10px rgba(240, 128, 152, 0.25);
     }
 
-    /* Animation */
     @keyframes fadeInTop {
       0% { opacity: 0; transform: translateY(-20px); }
       100% { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Mobile Responsive Styling */
+    @media (max-width: 768px) {
+      header {
+        font-size: 36px;
+        top: 10px;
+      }
+
+      .greeting {
+        top: 100px;
+        font-size: 24px;
+        padding: 0 10px;
+      }
+
+      .container {
+        margin-top: 220px;
+        padding: 15px 20px;
+      }
+
+      input[type="text"] {
+        width: 95%;
+        font-size: 14px;
+      }
+
+      button {
+        font-size: 14px;
+        padding: 8px 16px;
+      }
+
+      iframe {
+        height: 400px;
+      }
+
+      .terms {
+        font-size: 12px;
+      }
     }
   </style>
 </head>
 <body>
 
-  <header>
-    अष्टापद महावंदना 2025
-  </header>
-
-  <div class="header-bg-container">
-    <img src="image.png" alt="Local Image" />
-  </div>
+  <header>अष्टापद महावंदना 2025</header>
 
   <div class="greeting">
-    स्नेह प्रयास <br />
-    आपका हार्दिक स्वागत करता है 
+    स्नेह प्रयास <br />आपका हार्दिक स्वागत करता है 🙏
   </div>
 
   <div class="container">
     <h2>Enter Booking ID to Access the Form</h2>
     <input type="text" id="bookingId" placeholder="Enter Booking ID (e.g., Spc101)" />
     <button onclick="checkBookingId()">Submit</button>
-
     <p id="errorMsg"></p>
 
     <div id="formContainer" style="display:none;">
@@ -192,7 +192,7 @@
       <div class="terms">
         <input type="checkbox" id="termsCheckbox" required />
         <label for="termsCheckbox">
-          We hereby confirm that all the information provided is accurate and complete to the best of our knowledge. We acknowledge that we have read, understood, and agree to abide by the terms and conditions set forth by the Sneh Prayas Yatra Committee. Furthermore, we understand that the Committee reserves the right to reject our application without providing any reason and may modify the itinerary, route, or destinations at any time prior to the trip.
+          We hereby confirm that all the information provided is accurate and complete to the best of our knowledge...
         </label>
       </div>
     </div>
@@ -207,28 +207,28 @@
       }
     }
 
-    addBookingRange('spc', 101, 153);
-    addBookingRange('ind', 154, 188);
-    addBookingRange('shwh', 189, 274);
-    addBookingRange('nhwh', 275, 295);
-    addBookingRange('bbz', 296, 318);
-    addBookingRange('bbk', 319, 339);
-    addBookingRange('ali', 340, 348);
-    addBookingRange('kan', 349, 371);
-    addBookingRange('chow', 372, 389);
-    addBookingRange('shy', 390, 409);
+    addBookingRange('spc', 101, 152);
+    addBookingRange('ind', 153, 196);
+    addBookingRange('shwh', 197, 288);
+    addBookingRange('nhwh', 289, 315);
+    addBookingRange('bbz', 316, 340);
+    addBookingRange('bbk', 341, 362);
+    addBookingRange('ali', 363, 371);
+    addBookingRange('kan', 372, 394);
+    addBookingRange('chow', 395, 412);
+    addBookingRange('shy', 413, 434);
 
     function checkBookingId() {
       const enteredId = document.getElementById("bookingId").value.trim().toLowerCase();
       const errorMsg = document.getElementById("errorMsg");
       const formContainer = document.getElementById("formContainer");
 
-      if (validBookingIds.includes(enteredId)) {
-        formContainer.style.display = "block";
-        errorMsg.innerText = "";
-      } else {
-        formContainer.style.display = "none";
+      if (!validBookingIds.includes(enteredId)) {
         errorMsg.innerText = "❌ Invalid Booking ID. Please try again.";
+        formContainer.style.display = "none";
+      } else {
+        errorMsg.innerText = "";
+        formContainer.style.display = "block";
       }
     }
   </script>
