@@ -1,1 +1,222 @@
-eddc5329c42e6a6b83f8efafe457ad5c24f80d87
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sponsor Access – Ashtapad Mahavandana 2025</title>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2&family=Roboto&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      font-family: 'Baloo 2', cursive, 'Roboto', sans-serif;
+      background-image: url('https://www.kailash-yatra.org/images/ashtpad.jpg');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      color: #333;
+      background-blend-mode: overlay;
+      background-color: rgba(255, 255, 255, 0.9);
+    }
+
+    header {
+      font-size: 56px;
+      font-weight: 600;
+      color: #6a1b9a;
+      text-shadow: 0 0 2px rgba(0,0,0,0.2);
+      animation: fadeInTop 2s ease-out forwards;
+      letter-spacing: 0.06em;
+      user-select: none;
+      margin: 20px 0 10px;
+      padding: 0 15px;
+    }
+
+    .greeting {
+      font-size: 26px;
+      font-weight: 600;
+      color: #4a148c;
+      text-shadow: 0 0 1px rgba(0,0,0,0.1);
+      animation: fadeInTop 2s ease-out forwards;
+      line-height: 1.5;
+      user-select: none;
+      margin-bottom: 20px;
+      padding: 0 15px;
+    }
+
+    .container {
+      background-color: rgba(255, 255, 255, 0.95);
+      padding: 20px 30px;
+      border-radius: 12px;
+      width: 90%;
+      max-width: 650px;
+      text-align: center;
+      box-shadow: 0 6px 15px rgba(155, 89, 182, 0.25);
+      margin-bottom: 40px;
+    }
+
+    h2 {
+      color: #6a1b9a;
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+
+    input[type="text"] {
+      padding: 10px;
+      font-size: 16px;
+      width: 80%;
+      margin: 12px 0;
+      border-radius: 6px;
+      border: 1px solid #ba68c8;
+      outline-color: #ab47bc;
+    }
+
+    button {
+      padding: 10px 24px;
+      font-size: 16px;
+      background-color: #8e24aa;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #6a1b9a;
+    }
+
+    #errorMsg {
+      color: #d81b60;
+      margin-top: 10px;
+      font-weight: 600;
+      min-height: 24px;
+    }
+
+    .terms {
+      font-size: 14px;
+      color: #4a148c;
+      margin-top: 15px;
+      line-height: 1.5;
+      user-select: none;
+      text-align: left;
+    }
+
+    .terms input[type="checkbox"] {
+      margin-right: 10px;
+      cursor: pointer;
+    }
+
+    iframe {
+      width: 100%;
+      height: 600px;
+      border: none;
+      margin-top: 15px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(155, 89, 182, 0.2);
+    }
+
+    @keyframes fadeInTop {
+      0% { opacity: 0; transform: translateY(-20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 768px) {
+      header {
+        font-size: 36px;
+        margin-top: 20px;
+      }
+
+      .greeting {
+        font-size: 18px;
+        margin-bottom: 20px;
+      }
+
+      .container {
+        padding: 15px 20px;
+      }
+
+      input[type="text"] {
+        width: 100%;
+        font-size: 14px;
+      }
+
+      button {
+        font-size: 14px;
+        padding: 8px 16px;
+      }
+
+      iframe {
+        height: 400px;
+      }
+
+      .terms {
+        font-size: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>Ashtapad Mahavandana 2025</header>
+
+  <div class="greeting">
+    🙏 हार्दिक आभार! <br />
+    स्नेह प्रयास आपके सहयोग और समर्थन के लिए कृतज्ञ है।
+  </div>
+
+  <div class="container">
+    <h2>Sponsor Booking ID Verification</h2>
+    <input type="text" id="bookingId" placeholder="Enter Sponsor Booking ID (e.g., SPO437)" />
+    <button onclick="checkBookingId()">Access Form</button>
+    <p id="errorMsg"></p>
+
+    <div id="formContainer" style="display:none;">
+      <h3>Sponsorship Confirmation Form</h3>
+      <iframe
+        src="https://docs.google.com/forms/d/e/1FAIpQLSfnm6wGhSC-OlH7usWDmGD5Wots_9NuTVN_jEU_PwdodYInkw/viewform?embedded=true"
+        loading="lazy">
+        Loading…
+      </iframe>
+
+      <div class="terms">
+        <input type="checkbox" id="termsCheckbox" required />
+        <label for="termsCheckbox">
+          मैं पुष्टि करता/करती हूँ कि प्रस्तुत सभी विवरण सत्य हैं और मैं अष्टापद महावंदना 2025 के लिए एक प्रायोजक (Sponsor) के रूप में सहयोग कर रहा/रही हूँ।
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const validBookingIds = [];
+
+    function addBookingRange(prefix, start, end) {
+      for (let i = start; i <= end; i++) {
+        validBookingIds.push(prefix.toLowerCase() + i);
+      }
+    }
+
+    // Updated sponsor ID range: SPO437 to SPO510
+    addBookingRange('spo', 437, 510);
+
+    function checkBookingId() {
+      const enteredId = document.getElementById("bookingId").value.trim().toLowerCase();
+      const errorMsg = document.getElementById("errorMsg");
+      const formContainer = document.getElementById("formContainer");
+
+      if (!validBookingIds.includes(enteredId)) {
+        errorMsg.innerText = "❌ Invalid Sponsor Booking ID. कृपया पुनः प्रयास करें।";
+        formContainer.style.display = "none";
+      } else {
+        errorMsg.innerText = "";
+        formContainer.style.display = "block";
+        document.getElementById("formContainer").scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  </script>
+</body>
+</html>
